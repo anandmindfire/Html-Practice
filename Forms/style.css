@@ -1,255 +1,255 @@
-*, *:before, *:after {
-	box-sizing: border-box;
+body {
+    background-color: #0a3d53;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-body{
-	padding:0 ;
-  font-family: 'Raleway', sans-serif;
-	font-size: 14px;
-  color: #fff;
-	background-size: cover;
+h1.text-center.text-light {
+    text-align: center;
+    color: #fff;
 }
 
-.wrapper{
-	background: rgb(230, 120, 167);
-    background: radial-gradient(circle, rgb(228, 110, 161) 0%, rgb(105, 159, 219) 100%);
-	padding-right: 1em;
-	padding-left: 1em;
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-header{
-	height: 64px;
-	color:#fff;
-	text-align: center;
-	background: linear-gradient(to right, #ff9966, #ff5e62);
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.1);
+    
+    margin: 10px;
+    width: 100%;
+    max-width: 580px;
+    box-sizing: border-box;
+    display: flex;
+}
+.list-card{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 10px;
+    width: 100%;
+    max-width: 580px;
+    box-sizing: border-box;
 }
 
-header h2{
-	font-size: 1.8em;
-	margin-top: 0;
-	padding-top: .8em;
+.p-2 {
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.wrapper{
-	width: 90%;
-	margin: 0 auto;
-	padding-bottom: 0;
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
 }
 
-.info{
-	text-align: center;
+input[type="text"],
+input[type="number"],
+input[type="date"]
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 2px#4a4b4a;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    padding: 12px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+    margin: 15px 0 10px;
+    outline: none;
+    background-color: #202020;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="submit"]:hover {
+    background: #218838;
+}
+
+.list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px 15px;
+}
+
+tr:nth-child(even),
+table.list thead>tr {
+    background-color: #ddd;
+}
+
+.text-light {
+    color: #333;
+}
+
+.btn-success,
+.btn-danger {
+    display: inline-block;
+    background-color: transparent;
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.btn-danger {
+    background-color: transparent;
+    color: red;
+}
+
+.row-col{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.form-inline{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
 }
 
 
 
-.info h3{
-	margin-top: 0;
-	padding-top: 1.5em;
-  font-size: 2.5em;
-}
 
-.info p{
-	font-size: .85em;
-	border-bottom: 4px solid rgba(45,57,69);
-	padding-bottom: 3em;
-	margin-bottom: 0;
-}
 
-form{
-	border-top: 2px solid rgba(45,57,69);
-	margin-top: 2px;
-	padding-top: 1em;
-}
 
-fieldset{
-	border: none;
-	padding: 0;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	padding-top:1em; 
-	padding-bottom:1em;
+.class-radio{
+    display: flex;
 }
-
-fieldset legend{
-	font-size: 1.65em;
-	font-weight: bold;
-	padding-bottom: .75em;
-}
-
-.contact-info label{
-	display: block;
-	padding-bottom: .65em;
-  font-size: 1.25em;
-}
-
-.newsletter label{
-  font-size: 1.25em;
-}
-
-.contact-info input , select , textarea{
-	box-shadow: 0 0 1px ;
-	width: 100%;
-	height: 4em;
-	background-color: #fff;
-	outline: none;
-	border:none;
-	border-radius: 5px;
-	border-color: #fff;
-	text-indent: 10px;
-	transition: border-color .4s ease-in-out;
-}
-
-textarea{
-	height: 85px;
-	padding-top:10px;
-}
-
-.contact-info input:focus , select:focus , textarea:focus{
-	border: 2px solid #46698B;
-	border-radius: 0;
-}
-
-#name:focus,
-#email:focus{
-	border: 2px solid #FF7463;
-}
-
-[type="submit"]{
-	width: 100%;
-/* 	background-color: #4EBBB5; */
-/*   background-color: #f8f8e7; */
-  background-color: #eeeec6;
-	height: 60px;
-	border: none;
-	border-radius: 5px;
-	color: #444444;
-	cursor: pointer;
-  font-size: 1.25em;
-}
-
-[type="submit"]:hover{
-  opacity: .8;
+#file-chosen{
+    margin-left: 0.3rem;
+    font-family: sans-serif;
+  }
+  .file-button{
+    background-color: #202020;
+  color: white;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
   
-}
-.error-message{
-	color: #ff5e62;
-	margin-top: 5px;
-	font-size: 14px;
-}
+  }
+  .upload-pic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.newsletter [type="checkbox"]{
-	transform: scale(1.4);
-}
+  .form_action-button{
+    display: flex;
+    justify-content: space-between;
+  }
 
-::placeholder{
-	text-align: right;
-	padding-right: 1em;
-}
-.submitted-data {
-	margin-top: 20px;
-}
-
-table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-top: 20px;
+  .navbar {
+    background: rgb(43,44,46);
+background: radial-gradient(circle, rgba(43,44,46,1) 0%, rgba(223,226,232,1) 100%);
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    color: white;
 }
 
-table, th, td {
-	border: 1px solid #ddd;
+.logo {
+    float: left;
 }
 
-th, td {
-	padding: 10px;
-	text-align: left;
+.heading {
+    text-align: center;
+    flex-grow: 1;
 }
 
+.dropdown {
+    float: right;
+    display: inline-block;
+}
+.dropbtn{
+    background-color: #202020;
+    padding: 0.5rem;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
+    color: #fff;
 
-.footer p{
-	padding-top: 1em;
-	padding-bottom: 1em;
-	text-align: center;
-	margin: 0;
 }
 
-@media(min-width: 760px){
-
-	.wrapper{
-		max-width: 685px;
-	}
-	
-	.info h3{
-		font-size: 2.5em;
-		letter-spacing: 1px;
-	}
-
-	.info p{
-		font-size: 1.1em;
-	}
-
-	.contact-info label{
-		display: inline-block;
-		width: 20%;
-	}
-
-	.contact-info input , select{
-		width: 78%;
-	}
-
-	.newsletter .checkboxes p{
-		padding-top: 2px;
-		padding-bottom: 2px;
-	}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
-@media(min-width:1024px){
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-	.wrapper{
-		width: 90%;
-		max-width: 950px;
-	}
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
 
-	.contact-info label{
-		display: inline-block;
-		width: 26%;
-	}
+.dropdown-content a:hover {
+    background-color: #555;
+}
 
-	.contact-info input , select{
-		width: 72%;
-	}
+/* Your existing styles go here */
 
-	.contact-info p , .newsletter p{
-		margin-top: .5em;
-		margin-bottom: .5em;
-	}
+/* Add the following styles for mobile responsiveness */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px; /* Adjust the base font size for smaller screens */
+    }
 
-	form{
-		display: flex;
-		justify-content: space-between;
-	}
+    .d-flex {
+        flex-direction: column; /* Change flex direction to column for smaller screens */
+    }
 
-	.container{
-		display: flex; 
-		flex-direction: column; 
-		min-width: 340px;
-		height: 500px;
-		justify-content: space-around;
-	}
+    .card, .list-card {
+        max-width: 100%; /* Set the maximum width to 100% for smaller screens */
+        margin: 10px 0; /* Adjust margin for better spacing */
+    }
 
-	fieldset{
-		margin-right: 0;
-		margin-left: 0;
-	}
+    .form-inline {
+        flex-direction: column; /* Change flex direction to column for smaller screens */
+        align-items: stretch; /* Stretch items to full width */
+    }
 
-	.contact-info{
-		width: 55%;
-	}
+    .form_action-button {
+        flex-direction: column; /* Change flex direction to column for smaller screens */
+    }
 
-	.newsletter{
-		width: 41%;
-	}
-
-	form{
-		padding-top: 1em;
-	}
+    /* Add any additional adjustments as needed */
 }
