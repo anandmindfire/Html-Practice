@@ -1,185 +1,25 @@
+@import url(' href="https://fonts.googleapis.com/css?family=Tangerine">');
 body {
-    background-color: #0a3d53;
+    background:#31304D;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+
+    font-family: 'Tangerine', serif;
+    text-shadow: 2px 2px 2px #aaa;
+    font-weight: bold;
 }
 
-h1.text-center.text-light {
-    text-align: center;
-    color: #fff;
-}
-
-.d-flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.1);
-    
-    margin: 10px;
-    width: 100%;
-    max-width: 580px;
-    box-sizing: border-box;
-    display: flex;
-}
-.list-card{
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin: 10px;
-    width: 100%;
-    max-width: 580px;
-    box-sizing: border-box;
-}
-
-.p-2 {
-    padding: 16px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-input[type="text"],
-input[type="number"],
-input[type="date"]
-{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 5px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    box-shadow: 2px 2px 2px#4a4b4a;
-}
-
-input[type="submit"],
-input[type="reset"] {
-    padding: 12px 12px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 15px;
-    border: none;
-    margin: 15px 0 10px;
-    outline: none;
-    background-color: #202020;
-    color: #fff;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-input[type="submit"]:hover {
-    background: #218838;
-}
-
-.list {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-td,
-th {
-    border: 1px solid #ddd;
-    text-align: left;
-    padding: 8px 15px;
-}
-
-tr:nth-child(even),
-table.list thead>tr {
-    background-color: #ddd;
-}
-
-.text-light {
-    color: #333;
-}
-
-.btn-success,
-.btn-danger {
-    display: inline-block;
-    background-color: transparent;
-    color: #fff;
-    padding: 5px 10px;
-    text-decoration: none;
-    border-radius: 3px;
-    margin-right: 5px;
-}
-
-.btn-danger {
-    background-color: transparent;
-    color: red;
-}
-
-.row-col{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.form-inline{
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    
-}
-
-
-
-
-
-
-.class-radio{
-    display: flex;
-}
-#file-chosen{
-    margin-left: 0.3rem;
-    font-family: sans-serif;
-  }
-  .file-button{
-    background-color: #202020;
-  color: white;
-  padding: 0.5rem;
-  font-family: sans-serif;
-  border-radius: 0.3rem;
-  cursor: pointer;
-  
-  }
-  .upload-pic{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .form_action-button{
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .navbar {
-    background: rgb(43,44,46);
-background: radial-gradient(circle, rgba(43,44,46,1) 0%, rgba(223,226,232,1) 100%);
+.navbar {
     overflow: hidden;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    color: white;
+    background-color: #F0ECE5;
+    max-height: 50px;
 }
-
 .logo {
     float: left;
+    margin-left: 20px;
 }
 
 .heading {
@@ -189,11 +29,13 @@ background: radial-gradient(circle, rgba(43,44,46,1) 0%, rgba(223,226,232,1) 100
 
 .dropdown {
     float: right;
+
     display: inline-block;
+    margin-right: 20px;
 }
 .dropbtn{
-    background-color: #202020;
-    padding: 0.5rem;
+    background-color: #31304D;
+    padding: 0.4rem;
   font-family: sans-serif;
   border-radius: 0.3rem;
   cursor: pointer;
@@ -204,8 +46,9 @@ background: radial-gradient(circle, rgba(43,44,46,1) 0%, rgba(223,226,232,1) 100
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #333;
-    min-width: 160px;
+    background-color: #31304D;
+    border-radius: 0.3rem;
+    min-width: 85px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -222,34 +65,205 @@ background: radial-gradient(circle, rgba(43,44,46,1) 0%, rgba(223,226,232,1) 100
 }
 
 .dropdown-content a:hover {
-    background-color: #555;
+    background-color: #B6BBC4;
 }
 
-/* Your existing styles go here */
+.bg_color{
+    margin-left: 25px;
+    margin-top: 15px;
+    margin-right: 6px;
+}
+.bg_color a{
+    margin: 7px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+}
+#brown{
+    border: 2px solid #76453B;
+    background-color: #76453B;
+}
+#purple{
+    border: 2px solid #5D3587;
+    background-color: #5D3587;
+}
+#def{
+    border: 2px solid #4070f4;
+    background-color: #4070f4;
+}
+h1.text-center.text-light {
+    text-align: center;
+    color: #fff;
+}
 
-/* Add the following styles for mobile responsiveness */
-@media only screen and (max-width: 600px) {
-    body {
-        font-size: 14px; /* Adjust the base font size for smaller screens */
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    background-color: #F0ECE5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    margin: 20px;
+    width: 100%;
+    max-width: 550px;
+    max-height: 560px;
+    box-sizing: border-box;
+}
+
+.card-emplist{
+    background-color: #F0ECE5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    margin: 20px;
+    width: 100%;
+    max-height:560px ;
+    max-width: 550px;
+    box-sizing: border-box;
+}
+.p-2 {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 6px;
+  background-color: #F0ECE5;
+  
+}
+.p-2 header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600 ;
+    color: #333;
+    margin-bottom: 40px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.p-2 header::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height:3px;
+    width:27px;
+    border-radius: 8px;
+    background-color: #4070f4;
+  
+  }
+  .p-2 form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 490px;
+    background-color: #F0ECE5;
+  }
+  .fields{
+    display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  }
+  form .fields .input_field{
+    display: flex;
+    flex-basis: calc(33.33%-10px);
+    flex-direction: column;
+    margin: 4px 20px;
     }
+label {
+    display: block;
+    
+    color: #333;
+}
+.input_field input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .input_field input:is(:focus, :valid){
+    box-shadow: 0 1px 1px rgba(0,0,0,13);
+  }
+  .input_field input[type="date"]:valid{
+    color: #333;
+  }
+  .input_field textarea{
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .input_field textarea:is(:focus, :valid){
+    box-shadow: 0 1px 1px rgba(0,0,0,13);
+  }
 
-    .d-flex {
-        flex-direction: column; /* Change flex direction to column for smaller screens */
-    }
+input[type="submit"],
+input[type="reset"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    height: 45px;
+    width:100% ;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius:5px ;
+    margin:25px 10px;
+    background-color: #31304D;
+}
 
-    .card, .list-card {
-        max-width: 100%; /* Set the maximum width to 100% for smaller screens */
-        margin: 10px 0; /* Adjust margin for better spacing */
-    }
+input[type="submit"]:hover {
+    background: #161A30;
+}
+input[type="reset"]:hover {
+    background: #161A30;
+}
+.form_action--button{
+    display: flex;
+}
 
-    .form-inline {
-        flex-direction: column; /* Change flex direction to column for smaller screens */
-        align-items: stretch; /* Stretch items to full width */
-    }
+.list {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-    .form_action-button {
-        flex-direction: column; /* Change flex direction to column for smaller screens */
-    }
+td,
+th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px 15px;
+}
 
-    /* Add any additional adjustments as needed */
+tr:nth-child(even),
+table.list thead>tr {
+    background-color: #B6BBC4;
+}
+
+.text-light {
+    color: #333;
+}
+
+.btn-success,
+.btn-danger {
+    display: inline-block;
+    background-color: #218838;
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+.btn-success{
+  text-decoration: underline;
 }
