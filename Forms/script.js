@@ -173,7 +173,16 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('submit').style.backgroundColor='#31304D';
         document.getElementById('reset').style.backgroundColor='#31304D';
         document.getElementById('dropbtn').style.backgroundColor='#31304D';
+        document.getElementById('dropbtn').style.borderColor='#31304D';
         document.getElementById('dropcontent').style.backgroundColor='#31304D';
+        document.getElementById('head').style.color='#31304D';
+    
+        // Target thead>tr in tables with class 'list'
+        var listTables = document.querySelectorAll('table.list thead>tr');
+        listTables.forEach(function (headerRow) {
+            headerRow.style.backgroundColor = '#B6BBC4';
+        });
+        
     });
 
     document.getElementById('light').addEventListener('click', function () {
@@ -181,7 +190,16 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('submit').style.backgroundColor='#86B6F6';
         document.getElementById('reset').style.backgroundColor='#86B6F6';
         document.getElementById('dropbtn').style.backgroundColor='#86B6F6';
+        document.getElementById('dropbtn').style.borderColor='#86B6F6';
         document.getElementById('dropcontent').style.backgroundColor='#86B6F6';
+        document.getElementById('head').style.color='#3468C0';
+
+    
+        // Target thead>tr in tables with class 'list'
+        var listTables = document.querySelectorAll('table.list thead>tr');
+        listTables.forEach(function (headerRow) {
+            headerRow.style.backgroundColor = '#A1EEBD';
+        });
     });
 
     document.getElementById('sunny').addEventListener('click', function () {
@@ -189,6 +207,15 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('submit').style.backgroundColor='#FFB534';
         document.getElementById('reset').style.backgroundColor='#FFB534';
         document.getElementById('dropbtn').style.backgroundColor='#FFB534';
+        document.getElementById('dropbtn').style.borderColor='#FFB534';
         document.getElementById('dropcontent').style.backgroundColor='#FFB534';
+        document.getElementById('head').style.color='#E36414';
+
+    
+        // Target thead>tr in tables with class 'list'
+        var listTables = document.querySelectorAll('table.list thead>tr');
+        listTables.forEach(function (headerRow) {
+            headerRow.style.backgroundColor = '#FFF78A';
+        });
     });
 });

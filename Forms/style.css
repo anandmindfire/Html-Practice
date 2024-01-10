@@ -48,6 +48,7 @@ body {
     position: absolute;
     background-color: #31304D;
     border-radius: 0.3rem;
+    border-color: #31304D;
     min-width: 85px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -230,7 +231,7 @@ th {
     padding: 8px 15px;
 }
 
-tr:nth-child(even),
+
 table.list thead>tr {
     background-color: #B6BBC4;
 }
