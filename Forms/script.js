@@ -1,65 +1,69 @@
 var selectedRow = null;
-function onFormSubmit(e) {
-event.preventDefault();
-var formData = readFormData();
-if (validateForm(formData)===true) {
-if (selectedRow === null) {
-    insertNewRecord(formData);
-} else {
-    updateRecord(formData);
-}
 
-resetForm();
+loadTableData();
+
+function onFormSubmit(e) {
+    event.preventDefault();
+    var formData = readFormData();
+    if (validateForm(formData)===true) {
+    if (selectedRow === null) {
+        insertNewRecord(formData);
+    } else {
+        updateRecord(formData);
+    }
+
+    resetForm();
+    saveTableData();
 }
 }
 // validate form
 function validateForm(formData) {
 
 
-if (formData.fullName.trim() === '') {
-alert('Full Name is required');
-return false;
-}
-
-if (formData.dob.trim() === '') {
-alert("Please select your Date of Birth!");
-return false;
-}
-if (formData.age.trim() === '') {
-alert("Please select your age");
-return false;
-}
-
-
-if (!formData.email.trim().match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) && formData.email.trim() === "") {
-alert("Please enter a valid email!");
-email.focus();
-return false;
-}
-if (!formData.mobileno.match(/^[1-9][0-9]{9}$/) || formData.mobileno.trim()==="") {
-alert("mobile number must be 10 characters long number and first digit can't be 0!");
-mobileno.focus();
-return false;
-}
-
-if(!formData.gender.trim()){
-    alert('Please select a gender');
-    return false;
-}
-
-if (formData.empid.trim() === '') {
-    alert('employee id is required');
+    if (formData.fullName.trim() === '') {
+    alert('Full Name is required');
     return false;
     }
-    if (formData.role.trim() === '') {
-        alert('Role is required');
+
+    if (formData.dob.trim() === '') {
+    alert("Please select your Date of Birth!");
+    return false;
+    }
+    if (formData.age.trim() === '') {
+    alert("Please select your age");
+    return false;
+    }
+
+
+    if (!formData.email.trim().match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) && formData.email.trim() === "") {
+    alert("Please enter a valid email!");
+    email.focus();
+    return false;
+    }
+    if (!formData.mobileno.match(/^[1-9][0-9]{9}$/) || formData.mobileno.trim()==="") {
+    alert("mobile number must be 10 characters long number and first digit can't be 0!");
+    mobileno.focus();
+    return false;
+    }
+
+    if(!formData.gender.trim()){
+        alert('Please select a gender');
+        return false;
+    }
+
+    if (formData.empid.trim() === '') {
+        alert('employee id is required');
         return false;
         }
+        if (formData.role.trim() === '') {
+            alert('Role is required');
+            return false;
+            }
 
-if (formData.address.trim() === '') {
-alert("Please enter your address");
-return false;
-}
+    if (formData.address.trim() === '') {
+    alert("Please enter your address");
+    return false;
+    }
 
 return true;
 }
@@ -162,6 +166,7 @@ function onDelete(td) {
         row = td.parentElement.parentElement;
         document.getElementById('employeelist').deleteRow(row.rowIndex);
         resetForm();
+        saveTableData();
     }
 }
 
@@ -182,6 +187,7 @@ document.addEventListener('DOMContentLoaded', function () {
         listTables.forEach(function (headerRow) {
             headerRow.style.backgroundColor = '#B6BBC4';
         });
+        saveTableData();
         
     });
 
@@ -200,6 +206,8 @@ document.addEventListener('DOMContentLoaded', function () {
         listTables.forEach(function (headerRow) {
             headerRow.style.backgroundColor = '#A1EEBD';
         });
+
+        saveTableData();
     });
 
     document.getElementById('sunny').addEventListener('click', function () {
@@ -217,5 +225,41 @@ document.addEventListener('DOMContentLoaded', function () {
         listTables.forEach(function (headerRow) {
             headerRow.style.backgroundColor = '#FFF78A';
         });
+        saveTableData();
     });
 });
+
+function loadTableData() {
+    // Retrieve data from local storage
+    var storedData = JSON.parse(localStorage.getItem('employeeData')) || [];
+
+    // Loop through the stored data and insert into the table
+    storedData.forEach(function (data) {
+        insertNewRecord(data);
+    });
+}
+
+function saveTableData() {
+    // Get all table rows and store the data in an array
+    var tableRows = document.getElementById('employeelist').getElementsByTagName('tbody')[0].rows;
+    var dataToStore = [];
+
+    for (var i = 0; i < tableRows.length; i++) {
+        var rowData = {
+            fullName: tableRows[i].cells[1].innerHTML,
+            dob: tableRows[i].cells[2].innerHTML,
+            age: tableRows[i].cells[3].innerHTML,
+            email: tableRows[i].cells[4].innerHTML,
+            mobileno: tableRows[i].cells[5].innerHTML,
+            gender: tableRows[i].cells[6].innerHTML,
+            empid: tableRows[i].cells[7].innerHTML,
+            role: tableRows[i].cells[8].innerHTML,
+            address: tableRows[i].cells[9].innerHTML
+        };
+
+        dataToStore.push(rowData);
+    }
+
+    // Save the data to local storage
+    localStorage.setItem('employeeData', JSON.stringify(dataToStore));
+}
