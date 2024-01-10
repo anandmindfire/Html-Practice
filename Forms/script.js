@@ -84,8 +84,8 @@ function insertNewRecord(data) {
     var table = document.getElementById("employeelist").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
     var cell6 = newRow.insertCell(0);
-    cell6.innerHTML = `<a href="#" onClick='onEdit(this)' class='btn-success'>Edit</a>
-                <a href="#" onClick='onDelete(this)' class='btn-danger'>Delete</a>`;
+    cell6.innerHTML = `<a href="#" onClick='onEdit(this)' class='btn-success'>🖊️</a>
+                <a href="#" onClick='onDelete(this)' class='btn-danger'>❌</a>`;
 
     var cell1 = newRow.insertCell(1);
     cell1.innerHTML = data.fullName;
@@ -160,7 +160,7 @@ function updateRecord(formData) {
 function onDelete(td) {
     if (confirm('Are you sure you want to delete this record?')) {
         row = td.parentElement.parentElement;
-        document.getElementById('studentList').deleteRow(row.rowIndex);
+        document.getElementById('employeelist').deleteRow(row.rowIndex);
         resetForm();
     }
 }
