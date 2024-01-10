@@ -3,7 +3,7 @@ var selectedRow = null;
 loadTableData();
 
 function onFormSubmit(e) {
-    event.preventDefault();
+    e.preventDefault();
     var formData = readFormData();
     if (validateForm(formData)===true) {
     if (selectedRow === null) {
@@ -16,57 +16,129 @@ function onFormSubmit(e) {
     saveTableData();
 }
 }
+
+// input event listeners to form elements for real-time validation
+document.getElementById('fullName').addEventListener('input', function () {
+    validateFormField('fullName', 'Full Name is required');
+});
+
+document.getElementById('dob').addEventListener('input', function () {
+    validateFormField('dob', "Please select your Date of Birth!");
+});
+
+document.getElementById('age').addEventListener('input', function () {
+    validateFormField('age', "Please select your age");
+});
+
+document.getElementById('email').addEventListener('input', function () {
+    validateEmail('email', "Please enter a valid email!");
+});
+
+document.getElementById('mobileno').addEventListener('input', function () {
+    validateMobileNumber('mobileno', "Mobile number must be 10 characters long, and the first digit can't be 0!");
+});
+
+
+document.getElementById('empid').addEventListener('input', function () {
+    validateFormField('empid', 'Employee ID is required');
+});
+
+document.getElementById('role').addEventListener('input', function () {
+    validateFormField('role', 'Role is required');
+});
+
+document.getElementById('address').addEventListener('input', function () {
+    validateFormField('address', 'Please enter your address');
+});
+
 // validate form
 function validateForm(formData) {
+    var isValid = true; 
 
+    isValid = validateFormField('fullName', 'Full Name is required') && isValid;
+    isValid = validateFormField('dob', "Please select your Date of Birth!") && isValid;
+    isValid = validateFormField('age', "Please select your age") && isValid;
+    isValid = validateEmail('email', "Please enter a valid email!") && isValid;
+    isValid = validateMobileNumber('mobileno', "Mobile number must be 10 characters long, and the first digit can't be 0!") && isValid;
+    validateGender();
+    isValid = validateFormField('empid', 'Employee ID is required') && isValid;
+    isValid = validateFormField('role', 'Role is required') && isValid;
+    isValid = validateFormField('address', 'Please enter your address') && isValid;
 
-    if (formData.fullName.trim() === '') {
-    alert('Full Name is required');
-    return false;
-    }
-
-    if (formData.dob.trim() === '') {
-    alert("Please select your Date of Birth!");
-    return false;
-    }
-    if (formData.age.trim() === '') {
-    alert("Please select your age");
-    return false;
-    }
-
-
-    if (!formData.email.trim().match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) && formData.email.trim() === "") {
-    alert("Please enter a valid email!");
-    email.focus();
-    return false;
-    }
-    if (!formData.mobileno.match(/^[1-9][0-9]{9}$/) || formData.mobileno.trim()==="") {
-    alert("mobile number must be 10 characters long number and first digit can't be 0!");
-    mobileno.focus();
-    return false;
-    }
-
-    if(!formData.gender.trim()){
-        alert('Please select a gender');
-        return false;
-    }
-
-    if (formData.empid.trim() === '') {
-        alert('employee id is required');
-        return false;
-        }
-        if (formData.role.trim() === '') {
-            alert('Role is required');
-            return false;
-            }
-
-    if (formData.address.trim() === '') {
-    alert("Please enter your address");
-    return false;
-    }
-
-return true;
+    return isValid;
 }
+
+// Function to validate a form field and display error message
+function validateFormField(elementId, errorMessage) {
+    var element = document.getElementById(elementId);
+    var isValid;
+
+     isValid = element && element.value && element.value.trim() !== '';
+    
+
+    displayError(element, errorMessage, isValid);
+
+    return isValid;
+}
+
+// Function to validate email and display error message
+function validateEmail(elementId, errorMessage) {
+    var element = document.getElementById(elementId);
+    var isValid = element.value.trim().match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) || element.value.trim() === '';
+
+    displayError(element, errorMessage, isValid);
+
+    return isValid;
+}
+
+
+function validateGender() {
+    var genderError = document.getElementById("genderError");
+    var radioButtons = document.getElementsByName('gender');
+    var checked = false;
+
+    for (var i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked) {
+            checked = true;
+            break;
+        }
+    }
+
+    if (!checked) {
+        genderError.innerHTML = 'Please select your gender';
+    } else {
+        genderError.innerHTML = '';
+    }
+}
+// Function to validate mobile number and display error message
+function validateMobileNumber(elementId, errorMessage) {
+    var element = document.getElementById(elementId);
+    var isValid = element.value.trim().match(/^[1-9][0-9]{9}$/) || element.value.trim() === '';
+
+    displayError(element, errorMessage, isValid);
+
+    return isValid;
+}
+
+// Function to display error message in the placeholder and add 'error' class
+function displayError(element, errorMessage, isValid) {
+    element.placeholder = isValid ? '' : errorMessage;
+    element.classList.toggle('error', !isValid);
+
+    
+    var errorMessageElement = element.nextElementSibling;
+    if (!isValid) {
+        if (!errorMessageElement || !errorMessageElement.classList.contains('error-message')) {
+            errorMessageElement = document.createElement('div');
+            errorMessageElement.classList.add('error-message');
+            element.parentNode.insertBefore(errorMessageElement, element.nextSibling);
+        }
+        errorMessageElement.textContent = errorMessage;
+    } else if (errorMessageElement && errorMessageElement.classList.contains('error-message')) {
+        errorMessageElement.remove();
+    }
+}
+
 // read data from the form
 function readFormData() {
     var formData = {};
@@ -83,6 +155,7 @@ function readFormData() {
 
     return formData;
 }
+
 // insert new data to the table
 function insertNewRecord(data) {
     var table = document.getElementById("employeelist").getElementsByTagName('tbody')[0];
@@ -110,7 +183,15 @@ function insertNewRecord(data) {
     cell9.innerHTML = data.role;
     var cell10 = newRow.insertCell(9);
     cell10.innerHTML = data.address;
+
+    for (let i = 0; i < newRow.cells.length; i++) {
+        newRow.cells[i].ondblclick = function () {
+            onEditit(this, i);
+        };
+    }
+    
 }
+
 // reset form
 function resetForm() {
     document.getElementById('fullName').value = '';
@@ -125,8 +206,11 @@ function resetForm() {
 document.getElementById('empid').value = '';
 document.getElementById('role').value = '';
    document.getElementById('address').value = '';
+   
     selectedRow = null;
 }
+
+
 // edit form
 function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
@@ -138,13 +222,17 @@ function onEdit(td) {
     var genderValue = selectedRow.cells[6].innerHTML;
 var radioButtons = document.getElementsByName('gender');
 for (var i = 0; i < radioButtons.length; i++) {
-if (radioButtons[i].value === genderValue) {
-    radioButtons[i].checked = true;
+    if (radioButtons[i].value === genderValue) {
+        radioButtons[i].checked = true;
+    }
 }
-}
-document.getElementById('empid').value = selectedRow.cells[7].innerHTML;
-document.getElementById('role').value = selectedRow.cells[8].innerHTML;
-document.getElementById('address').value = selectedRow.cells[9].innerHTML;
+
+    document.getElementById('empid').value = selectedRow.cells[7].innerHTML;
+    document.getElementById('role').value = selectedRow.cells[8].innerHTML;
+    document.getElementById('address').value = selectedRow.cells[9].innerHTML;
+
+    var resetButton = document.getElementById('submit');
+    resetButton.value = 'Update';
 
 }
 // update form record
@@ -159,6 +247,9 @@ function updateRecord(formData) {
     selectedRow.cells[8].innerHTML = formData.role;
     selectedRow.cells[9].innerHTML = formData.address;
 
+    var resetButton = document.getElementById('submit');
+        resetButton.value = 'Submit';
+
 }
 // delete form record
 function onDelete(td) {
@@ -170,9 +261,9 @@ function onDelete(td) {
     }
 }
 
-//  for adding color changes
+//  for adding themes colours
 document.addEventListener('DOMContentLoaded', function () {
-    // Add click event listeners to each color option
+    //click event listener
     document.getElementById('dark').addEventListener('click', function () {
         document.body.style.backgroundColor = '#31304D';
         document.getElementById('submit').style.backgroundColor='#31304D';
@@ -182,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('dropcontent').style.backgroundColor='#31304D';
         document.getElementById('head').style.color='#31304D';
     
-        // Target thead>tr in tables with class 'list'
+        
         var listTables = document.querySelectorAll('table.list thead>tr');
         listTables.forEach(function (headerRow) {
             headerRow.style.backgroundColor = '#B6BBC4';
@@ -201,7 +292,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('head').style.color='#3468C0';
 
     
-        // Target thead>tr in tables with class 'list'
         var listTables = document.querySelectorAll('table.list thead>tr');
         listTables.forEach(function (headerRow) {
             headerRow.style.backgroundColor = '#A1EEBD';
@@ -220,7 +310,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('head').style.color='#E36414';
 
     
-        // Target thead>tr in tables with class 'list'
         var listTables = document.querySelectorAll('table.list thead>tr');
         listTables.forEach(function (headerRow) {
             headerRow.style.backgroundColor = '#FFF78A';
@@ -262,4 +351,33 @@ function saveTableData() {
 
     // Save the data to local storage
     localStorage.setItem('employeeData', JSON.stringify(dataToStore));
+}
+
+function onEditit(td, columnIndex) {
+    
+    selectedRow = td.parentElement;
+
+    var cell = selectedRow.cells[columnIndex];
+    var oldValue = cell.innerHTML;
+
+    var input = document.createElement('input');
+    // input.type = 'text';
+    input.value = oldValue;
+
+    // Add an onblur event to save the changes when the user clicks outside the input
+    input.addEventListener('blur', function () {
+        updateCellValue(cell, input.value);
+    });
+
+    // Replace the cell content with the input element
+    cell.innerHTML = '';
+    cell.appendChild(input);
+
+    // Focus on the input element to allow immediate editing
+    input.focus();
+}
+
+function updateCellValue(cell, newValue) {
+    // Update the cell value
+    cell.innerHTML = newValue;
 }

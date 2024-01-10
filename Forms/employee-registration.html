@@ -27,64 +27,65 @@
             </div>
         </div>
     </div>
-            <!-- main containet -->
+        
     <div class="d-flex">
         <div class="card">
             <div class="p-2">
                 
                 <!-- form -->
-                <form autocomplete="off" onsubmit="onFormSubmit()" class="form-group">
+                <form autocomplete="off" onsubmit="onFormSubmit(event)" class="form-group">
                     <div class="fields">
-                        <!-- name field -->
+                        <!-- name -->
                     <div class="input_field">
-                        <label for="fullName">Full Name</label>
+                        <label for="fullName">Full Name <span class="astric">*</span></label>
                         <input type="text" name="fullName" id="fullName" class="form-control">
                     </div>
-                     <!-- email field -->
+                     <!-- email -->
                      <div class="input_field">
-                        <label for="email">E-mail</label>
+                        <label for="email">E-mail <span class="astric">*</span></label>
                         <input type="email" name="email" id="email" class="form-control">
                     </div>
-                    <!-- date of birth field -->
+                    <!-- date of birth-->
                     <div class="input_field">
-                        <label for="dob" >DOB</label>
+                        <label for="dob" >DOB <span class="astric">*</span></label>
                         <input type="date" name="dob" id="dob" class="form-control" style="width: 210px;">
                     </div>
-                    <!-- age field -->
+                    <!-- age -->
                     <div class="input_field">
-                        <label for="age">Age</label>
+                        <label for="age">Age <span class="astric">*</span></label>
                         <input type="number" name="age" id="age" class="form-control">
                     </div>
                    
-                    <!-- mobile no field -->
+                    <!-- mobile no -->
                     <div class="input_field">
-                        <label for="mobileno">Mobile No.</label>
+                        <label for="mobileno">Mobile No.<span class="astric">*</span></label>
                         <input type="text" name="mobileno" id="mobileno" class="form-control">
                     </div>
-                    <!-- gender field -->
+                    <!-- gender -->
                     <div class="gender" style="margin: 4px 20px;">
-                        <label for="gender">Gender:</label>
-                        <input type="radio" name="gender" id="female" value="female">female
-                        <input type="radio" name="gender" id="male" value="male">male
-                        <input type="radio" name="gender" id="other" value="others">others
+                        <label for="">Gender <span class="astric">*</span></label>
+                        <input type="radio" name="gender" id="female" value="female" class="form-control" oninput="validateGender(this)">female
+                        <input type="radio" name="gender" id="male" value="male" class="form-control" oninput="validateGender(this)">male
+                        <input type="radio" name="gender" id="other" value="others" class="form-control" oninput="validateGender(this)">others
+                        <div id="genderError" class="error-message"></div>
                     </div>
-
+                       <!-- employee ID -->
                     <div class="input_field">
-                        <label for="empid">Employee ID</label>
+                        <label for="empid">Employee ID <span class="astric">*</span></label>
                         <input type="text" name="empid" id="empid" class="form-control">
                     </div>
-                     <!-- email field -->
+                     <!-- role -->
                      <div class="input_field">
-                        <label for="role">Role</label>
+                        <label for="role">Role <span class="astric">*</span></label>
                         <input type="role" name="role" id="role" class="form-control">
                     </div>
-                    <!-- address field -->
+                    <!-- address  -->
                     <div class="input_field">
-                        <label for="">Address</label>
-                        <textarea name="" id="address" cols="70" rows="3"></textarea>
+                        <label for="address">Address <span class="astric">*</span></label>
+                        <textarea name="address" id="address" cols="70" rows="3"></textarea>
                     </div>
                 </div>
-                <!-- submit and reset buttons -->
+                <!-- submit-->
                     <div class="form_action--button">
                         <input type="submit" id="submit" value="Submit" class="btn btn-success ">
                         <input type="reset" id="reset" value="Reset" class="btn btn-warning">

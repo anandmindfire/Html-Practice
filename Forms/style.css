@@ -1,4 +1,4 @@
-@import url(' href="https://fonts.googleapis.com/css?family=Tangerine">');
+
 body {
     background:#31304D;
     margin: 0;
@@ -29,8 +29,6 @@ body {
 
 .dropdown {
     float: right;
-
-    display: inline-block;
     margin-right: 20px;
 }
 .dropbtn{
@@ -257,4 +255,11 @@ table.list thead>tr {
 .btn-success{
   text-decoration: none;
   background-color: transparent;
+}
+
+.error-message{
+    color:red;
+}
+.astric{
+    color:red;
 }
