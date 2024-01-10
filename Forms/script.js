@@ -247,6 +247,7 @@ function updateRecord(formData) {
     selectedRow.cells[8].innerHTML = formData.role;
     selectedRow.cells[9].innerHTML = formData.address;
 
+    alert("Update SucessFully")
     var resetButton = document.getElementById('submit');
         resetButton.value = 'Submit';
 
