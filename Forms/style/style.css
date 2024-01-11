@@ -16,6 +16,10 @@ body {
     align-items: center;
     background-color: #F0ECE5;
     max-height: 50px;
+    position: fixed;
+    top:0;
+    width:100%;
+    z-index: 1;
 }
 .logo {
     float: left;
@@ -43,7 +47,7 @@ body {
 
 .dropdown-content {
     display: none;
-    position: absolute;
+    position: fixed;
     background-color: #31304D;
     border-radius: 0.3rem;
     border-color: #31304D;
@@ -100,7 +104,12 @@ h1.text-center.text-light {
     max-width: 550px;
     max-height: 560px;
     box-sizing: border-box;
+    margin-top: 4rem;
+    transition: transform .2s; /* Animation */
 }
+/* .card:hover{
+    transform: scale(1.03);
+} */
 
 .card-emplist{
     background-color: #F0ECE5;
@@ -112,6 +121,8 @@ h1.text-center.text-light {
     max-height:560px ;
     max-width: 550px;
     box-sizing: border-box;
+    margin-top: 4rem;
+    transition: transform .2s; /* Animation */
 }
 .p-2 {
   position: relative;
@@ -201,10 +212,12 @@ input[type="reset"] {
     width:100% ;
     border: none;
     outline: none;
-    color: #fff;
+    color: white;
+    font-weight: bolder;
     border-radius:5px ;
     margin:25px 10px;
     background-color: #31304D;
+    cursor: pointer; 
 }
 
 input[type="submit"]:hover {
@@ -233,7 +246,9 @@ th {
 table.list thead>tr {
     background-color: #B6BBC4;
 }
-
+/* .list tbody tr:hover {
+    background-color: #f5f5f5; 
+} */
 .text-light {
     color: #333;
 }
