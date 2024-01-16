@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useCallback } from 'react';
 
 const EmployeeForm = ({ onFormSubmit, validateGender, selectedEmployee }) => {
   const [formData, setFormData] = useState({
@@ -18,13 +18,14 @@ const EmployeeForm = ({ onFormSubmit, validateGender, selectedEmployee }) => {
     setFormData(selectedEmployee || {});
   }, [selectedEmployee]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-  };
+  }, [formData]);
+  
   return (
     <div className="card" >
-            <div className="p-2">
+            <div className="p-2" id='cardarea'>
     <form onSubmit={(e) => onFormSubmit(e, formData)} className="form-group">
     
       <div className="fields">

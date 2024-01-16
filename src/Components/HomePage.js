@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import Navbar from './Navbar';
 import EmployeeForm from './EmployeeForm';
 import EmployeeListTable from './EmployeeTable';
@@ -76,13 +77,31 @@ const HomePage = () => {
   };
   
   const onDelete = (index) => {
-    const updatedEmployeeList = [...employeeList];
-    updatedEmployeeList.splice(index, 1);
-    setEmployeeList(updatedEmployeeList);
+    // Show confirmation dialog
+    const isConfirmed = window.confirm("Are you sure you want to delete this employee data?");
+    
+    // If the user confirms, proceed with deletion
+    if (isConfirmed) {
+      const updatedEmployeeList = [...employeeList];
+      updatedEmployeeList.splice(index, 1);
+      setEmployeeList(updatedEmployeeList);
 
-    // Save data to local storage
-    saveToLocalStorage(updatedEmployeeList);
+      toast.error('❌ Data deleted sucessfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        
+        });
+      // Save data to local storage
+      saveToLocalStorage(updatedEmployeeList);
+    }
   };
+  
 
   const validateGender = (input) => {
     // Validate gender

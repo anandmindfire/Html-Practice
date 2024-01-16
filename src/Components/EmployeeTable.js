@@ -3,7 +3,7 @@ import React from 'react';
 const EmployeeListTable = ({ employeeList, onEdit, onDelete }) => {
   return (
     <div className="card-emplist">
-      <div className="bg-primary p-2">
+      <div className="bg-primary relative max-w-900 w-full rounded-6 p-3">
         <table className="list" id="employeelist">
           <thead>
             <tr>
@@ -19,12 +19,12 @@ const EmployeeListTable = ({ employeeList, onEdit, onDelete }) => {
               <th>Address</th>
             </tr>
           </thead>
-          <tbody className="text-light">
+          <tbody className="text-light shadow-xl">
             {employeeList.map((employee, index) => (
               <tr key={index}>
                 <td>
-                  <button onClick={() => onEdit(index)}>🖊️</button>
-                  <button onClick={() => onDelete(index)}>❌</button>
+                  <button className="shadow-xl rounded-lg" onClick={() => onEdit(index)}>🖊️</button>
+                  <button className="shadow-xl rounded-lg"onClick={() => onDelete(index)}>❌</button>
                 </td>
                 <td>{employee.fullName}</td>
                 <td>{employee.dob}</td>
