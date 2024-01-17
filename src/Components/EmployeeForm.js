@@ -140,7 +140,7 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
         </div>
 
         <div className="input_field">
-          <label htmlFor="dob" style={{width:"200px"}}>DOB <span className="astric">*</span></label>
+          <label htmlFor="dob" style={{width:"220px"}}>DOB <span className="astric">*</span></label>
           <input type="date" name="dob" id="dob" className="form-control" onChange={handleInputChange} value={formData.dob || ''}/>
           <div className="error-message">{formErrors.dob}</div>
         </div>

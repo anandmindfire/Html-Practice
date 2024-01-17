@@ -385,7 +385,7 @@ label {
   color: #333;
 }
 .input_field input{
-  width: 200px;
+  width: 220px;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -401,7 +401,7 @@ label {
   border-radius: 10px;
 }
 .input_field textarea{
-  width: 400px;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -420,7 +420,7 @@ input[type="reset"] {
   justify-content: center;
   text-decoration: none;
   height: 45px;
-  width:80% ;
+  width:50% ;
   border: none;
   outline: none;
   color: white;
