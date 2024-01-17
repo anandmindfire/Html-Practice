@@ -48,10 +48,10 @@ const Navbar = () => {
     </div>
 
       <div className="dropdown float-right mr-4">
-        <button className="dropbtn bg-steel-800 p-2 font-sans rounded-md cursor-pointer text-white shadow-md" id="dropbtn">
+        <button className="dropbtn bg-teal-950 p-2 font-sans rounded-md cursor-pointer text-white shadow-md" id="dropbtn">
           🌈Themes
         </button>
-        <div className="dropdown-content hidden fixed bg-steel-800 rounded-md border border-steel-800 min-w-85 shadow-md z-10" id="dropcontent">
+        <div className="dropdown-content hidden fixed bg-teal-950 rounded-md border border-teal-950 min-w-85 shadow-md z-10" id="dropcontent">
           <a className="text-white py-3 px-2 block no-underline hover:bg-gray-300" href="#" onClick={handleThemeChange({
             bodyColor: '#31304D',
             buttonColor: '#31304D',
