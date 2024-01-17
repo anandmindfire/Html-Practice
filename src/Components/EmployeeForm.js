@@ -141,7 +141,7 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
 
         <div className="input_field">
           <label htmlFor="dob">DOB <span className="astric">*</span></label>
-          <input type="date" name="dob" id="dob" className="form-control" style={{ width: '235px' }} onChange={handleInputChange} value={formData.dob || ''}/>
+          <input type="date" name="dob" id="dob" className="form-control" onChange={handleInputChange} value={formData.dob || ''}/>
           <div className="error-message">{formErrors.dob}</div>
         </div>
 
@@ -185,7 +185,7 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
 
         <div className="input_field">
           <label htmlFor="address">Address <span className="astric">*</span></label>
-          <textarea name="address" id="address" cols="70" rows="3" onChange={handleInputChange} value={formData.address || '' }></textarea>
+          <textarea name="address" id="address" cols="130" rows="3" onChange={handleInputChange} value={formData.address || '' }></textarea>
           <div className="error-message">{formErrors.address}</div>
         </div>
       </div>
