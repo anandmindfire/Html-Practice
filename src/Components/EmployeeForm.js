@@ -184,7 +184,7 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
         </div>
 
         <div className="input_field">
-          <label htmlFor="address" style={{width:"80%"}}>Address <span className="astric">*</span></label>
+          <label htmlFor="address" style={{width:"300px"}}>Address <span className="astric">*</span></label>
           <textarea name="address" id="address" cols="130" rows="3" onChange={handleInputChange} value={formData.address || '' }></textarea>
           <div className="error-message">{formErrors.address}</div>
         </div>

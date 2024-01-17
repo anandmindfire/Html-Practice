@@ -308,7 +308,7 @@ h1.text-center.text-light {
   overflow: auto;
   margin: 20px;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   max-height: 560px;
   box-sizing: border-box;
   margin-top: 1rem;
@@ -420,7 +420,7 @@ input[type="reset"] {
   justify-content: center;
   text-decoration: none;
   height: 45px;
-  width:100% ;
+  width:80% ;
   border: none;
   outline: none;
   color: white;
