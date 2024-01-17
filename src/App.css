@@ -274,6 +274,10 @@ cursor: pointer;
   background-color: #B6BBC4;
 } */
 
+.area{
+  background-color: #31304D;
+}
+
 .bg_color{
   margin-left: 25px;
   margin-top: 15px;
@@ -397,7 +401,7 @@ label {
   border-radius: 10px;
 }
 .input_field textarea{
-  width: 80%;
+  width: 85%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
