@@ -38,7 +38,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="overflow-hidden flex justify-between items-center bg-white max-h-20 fixed top-0 w-full z-10 h-14 sticky">
+    <div className="overflow-hidden flex justify-between items-center bg-white max-h-20 top-0 w-full z-10 h-14 sticky shadow-xl">
       <div className="float-left ml-4">
   <img src="./images/logo.webp" alt="Logo" className="w-38 h-8" />
 </div>

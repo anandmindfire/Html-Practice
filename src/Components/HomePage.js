@@ -31,28 +31,56 @@ const HomePage = () => {
 
   const onFormSubmit = (event, formData) => {
     event.preventDefault();
-
+  
     if (selectedEmployeeIndex !== null) {
       // Update existing employee
       const updatedEmployeeList = [...employeeList];
       updatedEmployeeList[selectedEmployeeIndex] = formData;
       setEmployeeList(updatedEmployeeList);
       setSelectedEmployeeIndex(null);
+      
+      toast.info('✔️ Data updated sucessfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        
+        });
+      // Save data to local storage using the updated state
+      saveToLocalStorage(updatedEmployeeList);
     } else {
       // Add new employee
-      setEmployeeList([...employeeList, formData]);
+      const newEmployeeList = [...employeeList, formData];
+      setEmployeeList(newEmployeeList);
+      
+      toast.success('✔️ Data added sucessfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        
+        });
+      // Save data to local storage using the updated state
+      saveToLocalStorage(newEmployeeList);
     }
-
-    // Save data to local storage
-    saveToLocalStorage([...employeeList, formData]);
   };
-
-  const onEdit = (index) => {
-    console.log('onEdit clicked:', index);
-    const selectedEmployee = employeeList[index];
-    console.log('Selected Employee:', selectedEmployee);
   
-    const updatedFormData = {
+  const onEdit = (index) => {
+    //console.log('onEdit clicked:', index);
+    const selectedEmployee = employeeList[index];
+    //console.log('Selected Employee:', selectedEmployee);
+  
+    // Use the functional form of setFormData to get the current state
+    setFormData((prevFormData) => ({
+      ...prevFormData,
       fullName: selectedEmployee.fullName || '',
       email: selectedEmployee.email || '',
       dob: selectedEmployee.dob || '',
@@ -62,19 +90,16 @@ const HomePage = () => {
       empid: selectedEmployee.empid || '',
       role: selectedEmployee.role || '',
       address: selectedEmployee.address || '',
-    };
-    console.log('Updated Form Data:', updatedFormData);
+    }));
+    
+   
+    // Log the current state after updating
+   // console.log('Updated Form Data State:', formData);
   
-    // Log the current state before updating
-    console.log('Current Form Data State:', formData);
-  
-    // Set the form data in the EmployeeForm component
+    // Set the selected index
     setSelectedEmployeeIndex(index);
-    setFormData(updatedFormData);
-  
-    // Log the state after updating
-    console.log('Updated Form Data State:', formData);
   };
+    
   
   const onDelete = (index) => {
     // Show confirmation dialog
@@ -102,19 +127,13 @@ const HomePage = () => {
     }
   };
   
-
-  const validateGender = (input) => {
-    // Validate gender
-    // ...
-  };
-
   return (
     <div className="App">
       <Navbar />
       <div className="d-flex">
       <EmployeeForm
         onFormSubmit={onFormSubmit}
-        validateGender={validateGender}
+        
         selectedEmployee={employeeList[selectedEmployeeIndex]}
         />
 
