@@ -308,7 +308,7 @@ h1.text-center.text-light {
   overflow: auto;
   margin: 20px;
   width: 100%;
-  max-width: 600px;
+  max-width: 575px;
   max-height: 560px;
   box-sizing: border-box;
   margin-top: 1rem;
@@ -367,6 +367,8 @@ background-color: #F0ECE5;
   box-shadow: 3px 2px 3px rgb(165, 163, 163);
   border-radius: 10px;
   padding: 5px;
+  justify-content: center;
+  align-items: center;
 }
 .fields{
   display: flex;
@@ -385,7 +387,7 @@ label {
   color: #333;
 }
 .input_field input{
-  width: 220px;
+  width: 225px;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -396,18 +398,36 @@ label {
 .input_field input:is(:focus, :valid){
   box-shadow: 0 1px 1px rgba(0,0,0,13);
 }
+@media only screen and (max-width: 600px) {
+  .input_field input {
+    width: 260px;          /* Make the input full-width on smaller screens */
+    padding: 10px 15px;   /* Adjust padding for smaller screens */
+    margin: 6px 0;        /* Adjust margin for smaller screens */
+    border-radius: 8px;   /* Adjust border-radius for smaller screens */
+  }
+}
 .input_field input[type="date"]:valid{
   color: #333;
   border-radius: 10px;
 }
 .input_field textarea{
-  width: 100%;
+  width: 490px;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-sizing: border-box;
+  
+}
+
+@media only screen and (max-width: 600px) {
+  .input_field textarea {
+    width: 260px;
+    padding: 10px 15px; /* Adjust padding for smaller screens */
+    margin: 6px 0;      /* Adjust margin for smaller screens */
+    border-radius: 8px; /* Adjust border-radius for smaller screens */
+  }
 }
 .input_field textarea:is(:focus, :valid){
   box-shadow: 0 1px 1px rgba(0,0,0,13);

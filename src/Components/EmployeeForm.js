@@ -159,7 +159,7 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
 
         <div className="gender space-x-1 ml-4">
             <label htmlFor="gender">Gender <span className="astric">*</span></label>
-            <div className="flex">
+            <div className="flex space-x-2">
             <input type="radio" name="gender" id="female" value="female" className="form-control ml-1" onChange={handleInputChange} checked={formData.gender === 'female' || ''} />
             <label htmlFor="female">Female</label>
             <input type="radio" name="gender" id="male" value="male" className="form-control ml-1" onChange={handleInputChange} checked={formData.gender === 'male' || ''}/>
