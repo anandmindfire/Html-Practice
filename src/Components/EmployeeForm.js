@@ -39,8 +39,6 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
     return isValid;
   };
   
-  
-  
   const validateMobileNumber = (fieldName, errorMessage) => {
     const value = formData[fieldName]?.trim() || ''; // Check if formData[fieldName] is defined before calling trim
     const isValid = value.match(/^[1-9][0-9]{9}$/) || value === '';
@@ -50,8 +48,6 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
     return isValid;
   };
   
-  
-
   const validateGender = () => {
     const radioButtons = document.getElementsByName('gender');
     const checked = Array.from(radioButtons).some((radio) => radio.checked);
@@ -147,13 +143,13 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
 
         <div className="input_field">
           <label htmlFor="age">Age <span className="astric">*</span></label>
-          <input type="number" name="age" id="age" className="form-control" onChange={handleInputChange} value={formData.age || ''}/>
+          <input type="number" name="age" id="age" className="form-control" onChange={handleInputChange} value={formData.age || ''} min="0" max="100"/>
           <div className="error-message">{formErrors.age}</div>
         </div>
 
         <div className="input_field">
           <label htmlFor="mobileno">Mobile No.<span className="astric">*</span></label>
-          <input type="text" name="mobileno" id="mobileno" className="form-control" onChange={handleInputChange} value={formData.mobileno || ''}/>
+          <input type="number" name="mobileno" id="mobileno" className="form-control" onChange={handleInputChange} value={formData.mobileno || ''}/>
           <div className="error-message">{formErrors.mobileno}</div>
         </div>
 
@@ -178,10 +174,26 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
         </div>
 
         <div className="input_field">
-          <label htmlFor="role">Role <span className="astric">*</span></label>
-          <input type="text" name="role" id="role" className="form-control" onChange={handleInputChange} value={formData.role || ''}/>
-          <div className="error-message">{formErrors.role}</div>
-        </div>
+            <label htmlFor="role">Role <span className="astric">*</span></label>
+            <select
+              name="role"
+              id="role"
+              className="form-control shadow-xl"
+              onChange={handleInputChange}
+              value={formData.role || ''}
+            >
+              <option value="" disabled>
+                Select Role
+              </option>
+              <option value="intern">Intern</option>
+              <option value="developer">Developer</option>
+              <option value="designer">Designer</option>
+              <option value="senior developer"> Senior Developer</option>
+              <option value="tech lead">Tech Lead</option>
+              {/* Add more roles as needed */}
+            </select>
+            <div className="error-message">{formErrors.role}</div>
+          </div>
 
         <div className="input_field">
           <label htmlFor="address" >Address <span className="astric">*</span></label>

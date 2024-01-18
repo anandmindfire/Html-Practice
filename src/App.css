@@ -409,6 +409,31 @@ label {
     border-radius: 8px;   /* Adjust border-radius for smaller screens */
   }
 }
+
+
+
+select {
+  width: 225px;
+  padding: 15px 20px;
+  margin: 9px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+ 
+}
+.input_field select:is(:focus, :valid) {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.13);
+}
+
+@media only screen and (max-width: 600px) {
+  .input_field select {
+    width: 260px;
+    padding: 10px 15px;
+    margin: 6px 0;
+    border-radius: 8px;
+  }
+}
+
 .input_field input[type="date"]:valid{
   color: #333;
   border-radius: 10px;
