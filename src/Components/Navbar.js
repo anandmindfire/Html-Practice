@@ -48,7 +48,7 @@ const Navbar = () => {
     </div>
 
       <div className="dropdown float-right mr-4">
-        <button className="dropbtn bg-teal-950 p-2 font-sans rounded-md cursor-pointer text-white shadow-md" id="dropbtn">
+        <button className="dropbtn bg-black p-2 font-sans rounded-md cursor-pointer text-white shadow-md" id="dropbtn">
           🌈Themes
         </button>
         <div className="dropdown-content hidden fixed bg-teal-950 rounded-md border border-teal-950 min-w-85 shadow-md z-10" id="dropcontent">
