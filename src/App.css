@@ -278,6 +278,9 @@ cursor: pointer;
   background-color: #31304D;
 }
 
+.bg-black{
+  background-color: black;
+}
 .bg_color{
   margin-left: 25px;
   margin-top: 15px;
