@@ -312,9 +312,9 @@ h1.text-center.text-light {
   margin: 20px;
   width: 100%;
   max-width: 575px;
-  max-height: 560px;
+  max-height: 540px;
   box-sizing: border-box;
-  margin-top: 1rem;
+  margin-top: 1.3rem;
   
 }
 .card:hover{
@@ -328,10 +328,10 @@ h1.text-center.text-light {
   overflow: auto;
   margin: 20px;
   width: 100%;
-  max-height:560px ;
+  max-height:540px ;
   max-width: 550px;
   box-sizing: border-box;
-  margin-top: 1rem;
+  margin-top: 1.3rem;
   transition: transform .2s; /* Animation */
 }
 .p-2 {
