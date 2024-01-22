@@ -1,18 +1,7 @@
 import React, { useState, useEffect ,useCallback } from 'react';
 import { toast } from 'react-toastify';
-const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    dob: '',
-    age: '',
-    mobileno: '',
-    gender: '',
-    empid: '',
-    role: '',
-    address: '',
-  });
-
+const EmployeeForm = ({ formData,setFormData,onFormSubmit, selectedEmployee }) => {
+  
   const [formErrors, setFormErrors] = useState({});
 
   useEffect(() => {

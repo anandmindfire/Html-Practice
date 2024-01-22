@@ -132,8 +132,9 @@ const HomePage = () => {
       <Navbar />
       <div className="d-flex">
       <EmployeeForm
+        formData={formData}
+        setFormData={setFormData}
         onFormSubmit={onFormSubmit}
-        
         selectedEmployee={employeeList[selectedEmployeeIndex]}
         />
 
