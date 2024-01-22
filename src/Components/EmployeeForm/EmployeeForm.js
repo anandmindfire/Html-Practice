@@ -91,6 +91,18 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
 
   const handleInputChange = useCallback((e) => {
     const { name, value } = e.target;
+    if (name === 'dob') {
+      // Check if the entered date is in the future
+      const enteredDate = new Date(value);
+      const currentDate = new Date();
+  
+      // Compare the dates by converting them to UTC to ensure accurate comparison
+      if (enteredDate.toUTCString() > currentDate.toUTCString()) {
+        setFormErrors((prevErrors) => ({ ...prevErrors, dob: 'Date of Birth cannot be in the future' }));
+      } else {
+        setFormErrors((prevErrors) => ({ ...prevErrors, dob: '' }));
+      }
+    }
     setFormData((prevData) => ({ ...prevData, [name]: value }));
     setFormErrors((prevErrors) => ({ ...prevErrors, [name]: '' }));
   }, []);

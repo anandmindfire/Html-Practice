@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import Navbar from './Navbar';
-import EmployeeForm from './EmployeeForm';
-import EmployeeListTable from './EmployeeTable';
+import Navbar from '../Components/Navbar/Navbar';
+import EmployeeForm from '../Components/EmployeeForm/EmployeeForm';
+import EmployeeListTable from '../Components/EmployeeTable/EmployeeTable';
 
 const HomePage = () => {
   const [employeeList, setEmployeeList] = useState([]);
