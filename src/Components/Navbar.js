@@ -24,7 +24,7 @@ const setTheme = (theme) => {
   localStorage.setItem('selectedTheme', JSON.stringify(theme));
 };
 
-const Navbar = () => {
+const Nav = () => {
   useEffect(() => {
     const storedTheme = localStorage.getItem('selectedTheme');
 
@@ -88,4 +88,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Nav;
