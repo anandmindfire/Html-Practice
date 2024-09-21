@@ -1,59 +1,17 @@
-import React, { useState } from 'react';
-import { toast } from 'react-toastify';
-const EditableCell = ({ value, onDoubleClick, onBlur, onInput }) => {
-  const [isEditing, setIsEditing] = useState(false);
-
-  const handleDoubleClick = () => {
-    setIsEditing(true);
-    onDoubleClick();
-  };
-
-  const handleBlur = () => {
-    setIsEditing(false);
-
-    onBlur();
-    toast.success(`✔️ updated successfully!`, {
-      position: 'top-right',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-  };
-
-  const handleInput = (e) => {
-    onInput(e.currentTarget.textContent);
-  };
-
-  return (
-    <td
-      onDoubleClick={handleDoubleClick}
-      onBlur={handleBlur}
-      contentEditable={isEditing}
-      suppressContentEditableWarning={true}
-      onInput={handleInput}
-    >
-      {value}
-    </td>
-  );
-};
+import React from 'react';
+import EditableCell from './EditableCell';
+// import { toast } from 'react-toastify';
 
 const EmployeeListTable = ({ employeeList, onEdit, onDelete }) => {
   const fieldOrder = ['fullName', 'email', 'mobileno', 'address', 'dob', 'age', 'gender', 'empid', 'role'];
 
   const handleEdit = (index, field, updatedValue) => {
     const updatedEmployeeList = [...employeeList];
-    
-    // Ensure the array at the specified index exists
+
     if (updatedEmployeeList[index]) {
-      // Update the specified field in the employee object
       updatedEmployeeList[index][field] = updatedValue;
 
-      
-      // Save data to local storage using the updated state
       localStorage.setItem('employeeData', JSON.stringify(updatedEmployeeList));
-      
     } else {
       console.error(`Array at index ${index} is undefined.`);
     }

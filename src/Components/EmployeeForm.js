@@ -39,8 +39,6 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
     return isValid;
   };
   
-  
-  
   const validateMobileNumber = (fieldName, errorMessage) => {
     const value = formData[fieldName]?.trim() || ''; // Check if formData[fieldName] is defined before calling trim
     const isValid = value.match(/^[1-9][0-9]{9}$/) || value === '';
@@ -50,8 +48,6 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
     return isValid;
   };
   
-  
-
   const validateGender = () => {
     const radioButtons = document.getElementsByName('gender');
     const checked = Array.from(radioButtons).some((radio) => radio.checked);
@@ -140,26 +136,26 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
         </div>
 
         <div className="input_field">
-          <label htmlFor="dob">DOB <span className="astric">*</span></label>
-          <input type="date" name="dob" id="dob" className="form-control" style={{ width: '235px' }} onChange={handleInputChange} value={formData.dob || ''}/>
+          <label htmlFor="dob" style={{width:"220px"}}>DOB <span className="astric">*</span></label>
+          <input type="date" name="dob" id="dob" className="form-control" onChange={handleInputChange} value={formData.dob || ''}/>
           <div className="error-message">{formErrors.dob}</div>
         </div>
 
         <div className="input_field">
           <label htmlFor="age">Age <span className="astric">*</span></label>
-          <input type="number" name="age" id="age" className="form-control" onChange={handleInputChange} value={formData.age || ''}/>
+          <input type="number" name="age" id="age" className="form-control" onChange={handleInputChange} value={formData.age || ''} min="0" max="100"/>
           <div className="error-message">{formErrors.age}</div>
         </div>
 
         <div className="input_field">
           <label htmlFor="mobileno">Mobile No.<span className="astric">*</span></label>
-          <input type="text" name="mobileno" id="mobileno" className="form-control" onChange={handleInputChange} value={formData.mobileno || ''}/>
+          <input type="number" name="mobileno" id="mobileno" className="form-control" onChange={handleInputChange} value={formData.mobileno || ''}/>
           <div className="error-message">{formErrors.mobileno}</div>
         </div>
 
         <div className="gender space-x-1 ml-4">
             <label htmlFor="gender">Gender <span className="astric">*</span></label>
-            <div className="flex">
+            <div className="flex space-x-2">
             <input type="radio" name="gender" id="female" value="female" className="form-control ml-1" onChange={handleInputChange} checked={formData.gender === 'female' || ''} />
             <label htmlFor="female">Female</label>
             <input type="radio" name="gender" id="male" value="male" className="form-control ml-1" onChange={handleInputChange} checked={formData.gender === 'male' || ''}/>
@@ -178,14 +174,30 @@ const EmployeeForm = ({ onFormSubmit, selectedEmployee }) => {
         </div>
 
         <div className="input_field">
-          <label htmlFor="role">Role <span className="astric">*</span></label>
-          <input type="text" name="role" id="role" className="form-control" onChange={handleInputChange} value={formData.role || ''}/>
-          <div className="error-message">{formErrors.role}</div>
-        </div>
+            <label htmlFor="role">Role <span className="astric">*</span></label>
+            <select
+              name="role"
+              id="role"
+              className="form-control shadow-xl"
+              onChange={handleInputChange}
+              value={formData.role || ''}
+            >
+              <option value="" disabled>
+                Select Role
+              </option>
+              <option value="intern">Intern</option>
+              <option value="developer">Developer</option>
+              <option value="designer">Designer</option>
+              <option value="senior developer"> Senior Developer</option>
+              <option value="tech lead">Tech Lead</option>
+              {/* Add more roles as needed */}
+            </select>
+            <div className="error-message">{formErrors.role}</div>
+          </div>
 
         <div className="input_field">
-          <label htmlFor="address">Address <span className="astric">*</span></label>
-          <textarea name="address" id="address" cols="70" rows="3" onChange={handleInputChange} value={formData.address || '' }></textarea>
+          <label htmlFor="address" >Address <span className="astric">*</span></label>
+          <textarea name="address" id="address" cols="130" rows="3" onChange={handleInputChange} value={formData.address || '' }></textarea>
           <div className="error-message">{formErrors.address}</div>
         </div>
       </div>

@@ -24,7 +24,7 @@ const setTheme = (theme) => {
   localStorage.setItem('selectedTheme', JSON.stringify(theme));
 };
 
-const Nav = () => {
+const Navbar = () => {
   useEffect(() => {
     const storedTheme = localStorage.getItem('selectedTheme');
 
@@ -48,7 +48,7 @@ const Nav = () => {
     </div>
 
       <div className="dropdown float-right mr-4">
-        <button className="dropbtn bg-teal-950 p-2 font-sans rounded-md cursor-pointer text-white shadow-md" id="dropbtn">
+        <button className="dropbtn btn-colour p-2 font-sans rounded-md cursor-pointer text-white shadow-md" id="dropbtn"style={{backgroundColor:"#004d40" }}>
           🌈Themes
         </button>
         <div className="dropdown-content hidden fixed bg-teal-950 rounded-md border border-teal-950 min-w-85 shadow-md z-10" id="dropcontent">
@@ -88,4 +88,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Navbar;
